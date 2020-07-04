@@ -17,14 +17,6 @@ const (
 func main() {
 	client := newClient()
 
-	resp1, err := client.Get(URL)
-	if err != nil {
-		fmt.Println(err)
-	}
-	defer resp1.Body.Close()
-
-	io.Copy(os.Stdout, resp1.Body)
-
 	greetReq := greet.Greet{
 		Name:     "John Doe",
 		Location: "USA",
